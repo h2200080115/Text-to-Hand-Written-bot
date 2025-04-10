@@ -33,6 +33,28 @@ A Telegram bot that can convert text to handwritten PDFs and edit screenshots wi
    python bot.py
    ```
 
+## Deployment to Railway
+
+1. Create a Railway account at [railway.app](https://railway.app)
+2. Install Railway CLI:
+   ```bash
+   npm i -g @railway/cli
+   ```
+3. Link your project:
+   ```bash
+   railway link
+   ```
+4. Deploy your project:
+   ```bash
+   railway up
+   ```
+
+### Environment Variables
+
+Set these environment variables in Railway dashboard:
+- `BOT_TOKEN`: Your Telegram bot token
+- `TESSERACT_PATH`: Path to Tesseract OCR (default: `/usr/bin/tesseract` for Linux)
+
 ## Usage
 
 1. Start the bot with /start

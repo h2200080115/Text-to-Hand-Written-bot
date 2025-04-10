@@ -13,8 +13,14 @@ import sys
 import cv2
 import numpy as np
 
-# Set Tesseract path and check if it exists
-TESSERACT_PATH = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+# Get environment variables
+BOT_TOKEN = os.getenv('BOT_TOKEN')
+TESSERACT_PATH = os.getenv('TESSERACT_PATH', '/usr/bin/tesseract')
+
+if not BOT_TOKEN:
+    print("Error: BOT_TOKEN environment variable not set")
+    sys.exit(1)
+
 if not os.path.exists(TESSERACT_PATH):
     print(f"Error: Tesseract not found at {TESSERACT_PATH}")
     print("Please install Tesseract-OCR from: https://github.com/UB-Mannheim/tesseract/wiki")
@@ -22,7 +28,8 @@ if not os.path.exists(TESSERACT_PATH):
 
 pytesseract.pytesseract.tesseract_cmd = TESSERACT_PATH
 
-bot = telebot.TeleBot("7460209179:AAFFw9HB95heL2NVj8fX0z1dxML56fVqTyc")
+# Initialize bot
+bot = telebot.TeleBot(BOT_TOKEN)
 
 FONT_PATH = os.path.join(os.path.dirname(__file__), "QECarolineMutiboko.ttf")
 OUTPUT_DIR = "output"
