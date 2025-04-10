@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+env/
+.env
+
+# Output directory
+output/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Local files
+*.pdf
+*.png
+*.jpg
+*.docx
+*.txt 
