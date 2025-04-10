@@ -1,0 +1,12 @@
+services:
+  - type: worker
+    name: telegram-handwritten-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    runtime: python3.9
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: TESSERACT_PATH
+        value: /usr/bin/tesseract 
